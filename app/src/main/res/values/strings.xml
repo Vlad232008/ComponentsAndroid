@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Components</string>
+    <string name="enabled_airplane">Включите режим полета</string>
+    <string name="disabled_airplane">Выключите режим полета</string>
 </resources>

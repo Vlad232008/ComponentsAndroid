@@ -20,21 +20,28 @@ class MyServices: Service() {
     }
 
     private fun someTask(time: Int) {
-        Thread {
-            for (i in 1..time) {
+        //Thread {
+            for (i in time downTo 1) {
                 Log.d("MyLog", "i = $i")
                 try {
-                    TimeUnit.SECONDS.sleep(1)
+                    val text = "$i"
+                    //LENGTH_SHORT = 2000ms, поэтому таймаут ставим тоже 2 секунды
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
+                    TimeUnit.SECONDS.sleep(2)
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                 }
             }
+        //При завершении цикла остановить сервис
             stopSelf()
-        }.start()
+        //}.start()
     }
     //При старте сервиса
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d("MyLog", "onStartCommand")
+        //Получить время из активити
         val time: Int = intent?.getIntExtra("time", 5)!!
         someTask(time)
         return super.onStartCommand(intent, flags, startId)

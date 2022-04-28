@@ -5,11 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 
-class MessageReceiver : BroadcastReceiver() {
+class AirplaneReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         val isAirplaneModeEnabled = intent.getBooleanExtra("state",false)
+        // Если Режим полета переключен, показать соответствующее сообщение
         if (isAirplaneModeEnabled){
             Toast.makeText(context, "Режим полета включен", Toast.LENGTH_LONG).show()
         }

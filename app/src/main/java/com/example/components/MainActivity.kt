@@ -1,31 +1,32 @@
 package com.example.components
 
 import android.content.Intent
-import android.content.IntentFilter
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.components.component.MessageReceiver
+import com.example.components.helperSQL.MyHelperSql
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var receiver: MessageReceiver
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        receiver = MessageReceiver()
         val service: View = findViewById(R.id.btnService)
+        val broadcast: View = findViewById(R.id.broadcast)
+        val content: View = findViewById(R.id.provider)
         service.setOnClickListener {
-            startActivity(Intent(this, ServiceActivity::class.java))
+            startActivity(Intent(this, ServiceExampleActivity::class.java))
             finish()
         }
-        IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
-            registerReceiver(receiver, it)
+        broadcast.setOnClickListener {
+            startActivity(Intent(this, ReceiverExampleActivity::class.java))
+            finish()
         }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        unregisterReceiver(receiver)
+        content.setOnClickListener {
+            startActivity(Intent(this, ContentExampleActivity::class.java))
+            finish()
+        }
     }
 }
