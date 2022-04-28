@@ -26,17 +26,18 @@ class ServiceExampleActivity: AppCompatActivity() {
             )
         }
     }
+    //Создаем на верхней панели кнопку назад/домой
     private fun actionBarSetting() {
         val ab = supportActionBar
         ab?.setDisplayHomeAsUpEnabled(true)
     }
+    //По кнопке домой возвращаемся в MainActivity
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
-
         }
         return super.onOptionsItemSelected(item)
     }
