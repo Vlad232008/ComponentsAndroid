@@ -41,4 +41,5 @@ class ReceiverExampleActivity: AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+    //В Терминалах сбора данных, используется BroadCast Receiver для отлова отсканированного штрихкода
 }

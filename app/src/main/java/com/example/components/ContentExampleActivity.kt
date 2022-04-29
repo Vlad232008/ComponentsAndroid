@@ -78,4 +78,6 @@ class ContentExampleActivity : AppCompatActivity() {
             edName.requestFocus()
         }
     }
+    //ContentProvider используется для получения контактов пользователя, поэтому среди популярных приложений
+    //могу привести пример мессенджеров, WhatsApp,Telegram...
 }

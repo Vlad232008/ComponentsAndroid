@@ -18,6 +18,7 @@ class ServiceExampleActivity: AppCompatActivity() {
         val startService: View = findViewById(R.id.btnStartService)
         val edTime: EditText = findViewById(R.id.edTime)
         startService.setOnClickListener {
+            //запускаем сервер и передаем туда данные
             startService(
                 Intent(this, MyServices::class.java).putExtra(
                     "time",
@@ -41,4 +42,5 @@ class ServiceExampleActivity: AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }
